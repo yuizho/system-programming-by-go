@@ -1,12 +1,15 @@
 package main
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
 	file, err := os.Create("test.txt")
 	if err != nil {
 		panic(err)
 	}
-	file.Write([]byte("os.File example\n"))
+	fmt.Fprintf(file, "%s, %d, %f", "os.File example", 1, 1.3)
 	file.Close()
 }
